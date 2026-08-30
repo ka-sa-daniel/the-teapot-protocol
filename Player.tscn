@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c64hn3k8q7g4h"]
+
+[ext_resource type="Script" uid="uid://csvpopcmuyj5t" path="res://Player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://bynw2foviv6tp" path="res://images/teapot_empty.png" id="2_kpjcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_kpjcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kpjcp")

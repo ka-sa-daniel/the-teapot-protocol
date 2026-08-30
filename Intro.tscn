@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cui81fu6lo1q"]
+
+[ext_resource type="Script" uid="uid://cjfsoy3di6ddi" path="res://Intro.gd" id="1_gjrx4"]
+[ext_resource type="Texture2D" uid="uid://das06occd2472" path="res://images/intro_image1.png" id="2_1rpvy"]
+[ext_resource type="Texture2D" uid="uid://c54uy0p62g7mh" path="res://images/intro_image2.png" id="3_6omm5"]
+[ext_resource type="Texture2D" uid="uid://ch38fp8k0ca00" path="res://images/intro_image3.png" id="4_4ad6s"]
+[ext_resource type="Texture2D" uid="uid://bg67oxl1bqwb" path="res://images/intro_image4.png" id="5_7136s"]
+[ext_resource type="Texture2D" uid="uid://bjmnavwgsdlv8" path="res://images/intro_image5.png" id="6_eejac"]
+[ext_resource type="Texture2D" uid="uid://b5jwmibe4wh58" path="res://images/intro_image6.png" id="7_33olo"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gjrx4")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Image1" type="Sprite2D" parent="."]
+position = Vector2(610, 395)
+texture = ExtResource("2_1rpvy")
+
+[node name="Image2" type="Sprite2D" parent="."]
+position = Vector2(610, 395)
+texture = ExtResource("3_6omm5")
+
+[node name="Image3" type="Sprite2D" parent="."]
+position = Vector2(610, 395)
+texture = ExtResource("4_4ad6s")
+
+[node name="Image4" type="Sprite2D" parent="."]
+position = Vector2(610, 395)
+texture = ExtResource("5_7136s")
+
+[node name="Image5" type="Sprite2D" parent="."]
+position = Vector2(610, 395)
+texture = ExtResource("6_eejac")
+
+[node name="Image6" type="Sprite2D" parent="."]
+position = Vector2(610, 395)
+texture = ExtResource("7_33olo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "⏭ Skip"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

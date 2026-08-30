@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca2qhbsm8ca13"]
+
+[ext_resource type="Script" uid="uid://dq8hvfgk136ux" path="res://TeaDrop.gd" id="1_p26ef"]
+[ext_resource type="Texture2D" uid="uid://bd60v2d37xm5x" path="res://images/tea.png" id="2_p26ef"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xi43k"]
+radius = 16.0
+height = 32.0
+
+[node name="TeaDrop" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_p26ef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p26ef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xi43k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

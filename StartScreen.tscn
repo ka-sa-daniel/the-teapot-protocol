@@ -1,0 +1,214 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck7vs4cwy45x"]
+
+[ext_resource type="Script" uid="uid://dod1kwd6cd51x" path="res://StartScreen.gd" id="1_s4vtk"]
+[ext_resource type="Texture2D" uid="uid://dg15wpy4omjwm" path="res://images/teapot.png" id="3_vno1p"]
+[ext_resource type="Texture2D" uid="uid://c7j7el3u0qmw2" path="res://images/coffee_cup.png" id="4_gtard"]
+[ext_resource type="Texture2D" uid="uid://c40s165ipgdww" path="res://images/teapot_hat.png" id="5_vuion"]
+
+[sub_resource type="Animation" id="Animation_vno1p"]
+resource_name = "LidThrow"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lid:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1000, 400), Vector2(571, 173), Vector2(154, 434)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Teapot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1000, 400), Vector2(1000, 390), Vector2(1000, 400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoffeeCup:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(152, 418)]
+}
+
+[sub_resource type="Animation" id="Animation_gtard"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Teapot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1000, 400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CoffeeCup:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(152, 418)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuion"]
+_data = {
+&"LidThrow": SubResource("Animation_vno1p"),
+&"RESET": SubResource("Animation_gtard")
+}
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s4vtk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu_old" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 541.0
+offset_top = 400.0
+offset_right = 611.0
+offset_bottom = 533.0
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="MainMenu"]
+layout_mode = 2
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="MainMenu"]
+layout_mode = 2
+text = "Exit"
+
+[node name="DifficultyMenu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 510.0
+offset_top = 355.0
+offset_right = 643.0
+offset_bottom = 582.0
+theme_override_constants/separation = 20
+
+[node name="SelectDifficultyLabel" type="Label" parent="DifficultyMenu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.650626, 0.302656, 0.507622, 1)
+text = "Select Difficulty"
+horizontal_alignment = 1
+
+[node name="FullButton" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+text = "Full"
+
+[node name="HalfFullButton" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+text = "Half-full"
+
+[node name="EmptyButton" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+text = "Empty"
+
+[node name="BackButton" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+text = "Back"
+
+[node name="Teapot" type="Sprite2D" parent="."]
+position = Vector2(1000, 400)
+texture = ExtResource("3_vno1p")
+
+[node name="CoffeeCup" type="Sprite2D" parent="."]
+position = Vector2(152, 418)
+texture = ExtResource("4_gtard")
+flip_h = true
+
+[node name="Lid" type="Sprite2D" parent="."]
+texture = ExtResource("5_vuion")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vuion")
+}
+
+[node name="StartDelayTimer" type="Timer" parent="AnimationPlayer"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 2
+offset_left = 340.0
+offset_top = 200.0
+offset_right = 824.0
+offset_bottom = 269.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.350177, 0.402194, 0.768551, 1)
+theme_override_font_sizes/font_size = 50
+text = "The Teapot Protocol"
+
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenu/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/FullButton" to="." method="_on_full_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/HalfFullButton" to="." method="_on_half_full_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/EmptyButton" to="." method="_on_empty_button_pressed"]
+[connection signal="pressed" from="DifficultyMenu/BackButton" to="." method="_on_difficulty_back_button_pressed"]
+[connection signal="timeout" from="AnimationPlayer/StartDelayTimer" to="." method="_on_start_delay_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ber55ia8idywx"]
+
+[ext_resource type="Script" uid="uid://t4ka3v43fq6b" path="res://CoffeeDrop.gd" id="1_ahtg4"]
+[ext_resource type="Texture2D" uid="uid://blvohqfpjigbu" path="res://images/coffee.png" id="2_svfbd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xi43k"]
+radius = 16.0
+height = 32.0
+
+[node name="CoffeeDrop" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_ahtg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_svfbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xi43k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

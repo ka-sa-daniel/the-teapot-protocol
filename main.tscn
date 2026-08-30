@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6pw0vbmv44ag"]
+
+[ext_resource type="PackedScene" uid="uid://c64hn3k8q7g4h" path="res://Player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://ca23u27p6yrb8" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://crb7qo0rem6wr" path="res://RaindropSpawner.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://4yuoo8f3ttg6" path="res://GameOverUI.tscn" id="3_h2yge"]
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 3
+background_color = Color(1, 1, 1, 1)
+background_canvas_max_layer = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2yge")
+
+[node name="Player" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="RaindropSpawner" type="Node2D" parent="."]
+script = ExtResource("2_h2yge")
+
+[node name="GameOverUI" parent="." instance=ExtResource("3_h2yge")]
+visible = false
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.439216, 0.572549, 0.745098, 1)
+theme_override_font_sizes/font_size = 30
+text = "STATUS: 418"
+
+[node name="StatusCodeMessageLabel" type="Label" parent="."]
+offset_top = 50.0
+offset_right = 176.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.439216, 0.572549, 0.745098, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_top = 100.0
+offset_right = 229.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.439216, 0.572549, 0.745098, 1)
+theme_override_font_sizes/font_size = 30
+text = "SCORE: 0"
+
+[node name="StatusCodeTimer" type="ProgressBar" parent="."]
+offset_left = 1052.0
+offset_right = 1152.0
+offset_bottom = 100.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_h2yge")
+max_value = 5.0
+show_percentage = false

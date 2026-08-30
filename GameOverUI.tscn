@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://4yuoo8f3ttg6"]
+
+[ext_resource type="Script" uid="uid://dtx0j2nh0mxjd" path="res://GameOverUI.gd" id="1_sdbmt"]
+
+[node name="GameOverUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sdbmt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.478431)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 392.5
+offset_top = 280.0
+offset_right = 759.5
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(0.608796, 0.288638, 0.634987, 1)
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 543.5
+offset_top = 420.0
+offset_right = 608.5
+offset_bottom = 451.0
+theme_override_font_sizes/font_size = 16
+text = "Restart"
+
+[node name="ReturnToTitleButton" type="Button" parent="."]
+layout_mode = 1
+offset_left = 516.5
+offset_top = 500.0
+offset_right = 635.5
+offset_bottom = 531.0
+text = "Return to Title"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ReturnToTitleButton" to="." method="_on_return_to_title_button_pressed"]
