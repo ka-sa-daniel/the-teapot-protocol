@@ -2,6 +2,18 @@
 
 HTTPステータスコード **418 I'm a teapot** をテーマにした、Godot製の2Dアクションゲームです。落ちてくるコーヒーを避け、紅茶や茶葉を集めながらハイスコアを目指します。
 
+本リポジトリは、以前に個人制作したゲームを公開用に整理したものです。
+
+## スクリーンショット
+
+### タイトル画面
+
+![タイトル画面](images/screenshots/title-screen.png)
+
+### ゲーム画面
+
+![ゲーム画面](images/screenshots/gameplay.png)
+
 ## モチーフ
 
 本作は、1998年のエイプリルフールRFCであるHTCPCP（Hyper Text Coffee Pot Control Protocol）で定義された `418 I'm a teapot` をモチーフにしています。
